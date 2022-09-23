@@ -2,7 +2,6 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  //stats:'verbose',
   mode: "development",
   entry: path.join(__dirname, "index.js"),
   output: {
@@ -10,21 +9,20 @@ module.exports = {
   },
   module: {
     rules: [
-      // webpack configuration
       {
         test: /\.css$/,
         use: [
           "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 1,
-              modules: {
-                localIdentName: "[name]-[local]-[hash:base64:3]",
-              },
-              modules: true,
-            },
-          },
+          "css-loader",
+          // {
+          //   loader: "css-loader",
+          //   options: {
+          //     // modules: {
+          //     //   localIdentName: "[name]-[local]-[hash:base64:3]",
+          //     // },
+          //     modules: true,
+          //   },
+          // },
         ],
       },
       {
